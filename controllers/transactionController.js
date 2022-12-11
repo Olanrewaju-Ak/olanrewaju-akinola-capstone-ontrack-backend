@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 // GET ALL TRANSACTIONS
 exports.index = (_req, res) => {
 	knex("transactions")
+		.orderBy("date", "desc")
 		.then((data) => {
 			res.status(200).json(data);
 		})
@@ -15,6 +16,17 @@ exports.expenses = (_req, res) => {
 	knex.select("transactions.*")
 		.from("transactions")
 		.where("transactions.type", "=", "expense")
+		.then((data) => {
+			res.status(200).json(data);
+		})
+		.catch((err) => res.status(400).send(`Error retrieving expenses: ${err}`));
+};
+
+// GET ALL  TRANSACTIONS-INCOME
+exports.income = (_req, res) => {
+	knex.select("transactions.*")
+		.from("transactions")
+		.where("transactions.type", "=", "income")
 		.then((data) => {
 			res.status(200).json(data);
 		})
@@ -60,21 +72,6 @@ exports.addTransaction = (req, res) => {
 		})
 		.catch((err) => res.status(400).send(`Error creating Transaction: ${err}`));
 };
-
-// //PUT A WAREHOUSE
-// exports.updateWarehouse = (req, res) => {
-// 	knex("warehouses")
-// 		.update(req.body)
-// 		.where({ id: req.params.id })
-// 		.then((_data) => {
-// 			knex("warehouses")
-// 				.where({ id: req.params.id })
-// 				.then((data) => {
-// 					res.status(200).json(data[0]);
-// 				});
-// 		})
-// 		.catch((err) => res.status(400).send(`Error updating Warehouse ${req.params.id} ${err}`));
-// };
 
 //DELETE A TRANSACTION
 exports.deleteTransaction = (req, res) => {

@@ -7,6 +7,7 @@ exports.up = function (knex) {
 		table.uuid("id").primary();
 		table.decimal("max_amount", 14, 2).notNullable();
 		table.decimal("amount_spent", 14, 2).notNullable();
+		table.string("category").notNullable();
 		table
 			.integer("category_id")
 			.unsigned()

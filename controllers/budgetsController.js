@@ -1,5 +1,5 @@
 const knex = require("knex")(require("../knexfile"));
-const { v4: uuidv4 } = require("uuid");
+// const { v4: uuidv4 } = require("uuid");
 
 exports.index = (_req, res) => {
 	knex.select("budgets.*", "transactions.category_id")

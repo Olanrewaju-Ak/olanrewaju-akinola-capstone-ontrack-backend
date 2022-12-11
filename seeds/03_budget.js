@@ -10,17 +10,19 @@ exports.seed = async function (knex) {
 			id: "dB9D4WVBr3",
 			max_amount: "1000.00",
 			amount_spent: "289.45",
+			category: "food",
 			category_id: 1,
 			start_date: "2022-9-21",
 			end_date: "2022-10-21"
 		},
 		{
 			id: "AB9D4W5Brt",
-			max_amount: "1000.00",
-			amount_spent: "600.00",
+			max_amount: "600.00",
+			amount_spent: "50.00",
+			category: "utility",
 			category_id: 3,
 			start_date: "2022-9-21",
-			end_date: "2022-10-21"
+			end_date: "2022-10-01"
 		}
 	]);
 };

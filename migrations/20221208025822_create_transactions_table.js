@@ -9,6 +9,7 @@ exports.up = function (knex) {
 		table.string("description").notNullable();
 		table.string("type").notNullable();
 		table.date("date").notNullable();
+		table.string("category").notNullable();
 		table
 			.integer("category_id")
 			.unsigned()
