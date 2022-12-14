@@ -11,12 +11,11 @@ exports.up = function (knex) {
 		table
 			.integer("category_id")
 			.unsigned()
-			.notNullable()
 			.references("category.category_id")
 			.onUpdate("CASCADE")
 			.onDelete("CASCADE");
-		table.date("start_date").notNullable();
-		table.date("end_date").notNullable();
+		table.datetime("start_date").notNullable();
+		table.datetime("end_date").notNullable();
 	});
 };
 
