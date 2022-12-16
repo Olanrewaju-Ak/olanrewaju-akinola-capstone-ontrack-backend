@@ -58,9 +58,11 @@ exports.addBudget = (req, res) => {
 			knex("budgets")
 				.where({ id: newBudgetId })
 				.then((_data) => {
-					knex("budgets").then((data) => {
-						res.status(200).json(data);
-					});
+					knex("budgets")
+						.orderBy("date", "desc")
+						.then((data) => {
+							res.status(200).json(data);
+						});
 				});
 		})
 		.catch((err) => res.status(400).send(`Error creating Budget: ${err}`));
@@ -71,8 +73,10 @@ exports.deleteBudget = (req, res) => {
 	knex("budgets")
 		.delete()
 		.where({ id: req.params.id })
-		.then(() => {
-			res.status(204).send(`Budget with id: ${req.params.id} has been deleted`);
+		.then((_data) => {
+			knex("budgets").then((data) => {
+				res.status(200).json(data);
+			});
 		})
 		.catch((err) => {
 			res.status(400).send(`Error deleting Budget ${req.params.id} ${err}`);

@@ -111,8 +111,12 @@ exports.deleteTransaction = (req, res) => {
 	knex("transactions")
 		.delete()
 		.where({ id: req.params.id })
-		.then(() => {
-			res.status(204).send(`Transaction with id: ${req.params.id} has been deleted`);
+		.then((_data) => {
+			knex("transactions")
+				.orderBy("date", "desc")
+				.then((data) => {
+					res.status(200).json(data);
+				});
 		})
 		.catch((err) => {
 			res.status(400).send(`Error deleting Transaction ${req.params.id} ${err}`);
