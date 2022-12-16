@@ -58,11 +58,9 @@ exports.addBudget = (req, res) => {
 			knex("budgets")
 				.where({ id: newBudgetId })
 				.then((_data) => {
-					knex("budgets")
-						.orderBy("date", "desc")
-						.then((data) => {
-							res.status(200).json(data);
-						});
+					knex("budgets").then((data) => {
+						res.status(200).json(data);
+					});
 				});
 		})
 		.catch((err) => res.status(400).send(`Error creating Budget: ${err}`));
