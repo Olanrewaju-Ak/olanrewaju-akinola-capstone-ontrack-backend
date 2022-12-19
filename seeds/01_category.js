@@ -7,48 +7,41 @@ exports.seed = async function (knex) {
 	await knex("category").del();
 	await knex("category").insert([
 		{
-			category_id: 11,
-			category_name: "income"
-		},
-		{
 			category_id: 1,
 			category_name: "food"
 		},
 		{
 			category_id: 2,
-			category_name: "housing"
+			category_name: "personal"
 		},
 		{
 			category_id: 3,
-			category_name: "transportation"
+			category_name: "utility "
 		},
 		{
 			category_id: 4,
-			category_name: "utilities"
+			category_name: "transport"
 		},
 		{
 			category_id: 5,
-			category_name: "insurance"
+			category_name: "lifestyle"
 		},
 		{
 			category_id: 6,
 			category_name: "medical"
 		},
+
 		{
 			category_id: 7,
-			category_name: "subscription"
+			category_name: "housing "
 		},
 		{
 			category_id: 8,
-			category_name: "personal"
+			category_name: "others"
 		},
 		{
 			category_id: 9,
-			category_name: "fun"
-		},
-		{
-			category_id: 10,
-			category_name: "miscellaneous"
+			category_name: "income"
 		}
 	]);
 };

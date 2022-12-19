@@ -3,7 +3,7 @@ const knex = require("knex")(require("../knexfile"));
 exports.index = (_req, res) => {
 	knex.select("transactions.*")
 		.from("transactions")
-		.where("transactions.type", "=", "expense")
+		.where("transactions.type", "=", "income")
 		.then((data) => {
 			res.status(200).json(data[0]);
 		})
