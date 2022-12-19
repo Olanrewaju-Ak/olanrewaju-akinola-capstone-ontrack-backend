@@ -15,7 +15,6 @@ app.use(
 
 const transactionRoutes = require("./routes/transactionRoutes");
 const budgetsRoutes = require("./routes/budgetsRoutes");
-// const expensesRoutes = require("./routes/expensesRoutes");
 
 app.use("/api/transactions", transactionRoutes);
 
