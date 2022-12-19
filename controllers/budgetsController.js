@@ -25,7 +25,6 @@ exports.budgetCategory = (_req, res) => {
 
 // GET SINGLE BUDGET
 exports.singleBudget = (req, res) => {
-	// console.log(req.params);
 	knex("budgets")
 		.where({ id: req.params.id })
 		.then((data) => {

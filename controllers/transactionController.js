@@ -35,7 +35,6 @@ exports.income = (_req, res) => {
 
 // GET SINGLE TRANSACTION DETAILS
 exports.singleTransaction = (req, res) => {
-	// console.log(req.params);
 	knex("transactions")
 		.where({ id: req.params.id })
 		.then((data) => {
@@ -50,27 +49,6 @@ exports.singleTransaction = (req, res) => {
 			res.status(400).send(`Error retrieving transaction ${req.params.id} ${err}`)
 		);
 };
-
-// GET TRANSACTIONS BY CATEGORIES
-
-// http://localhost:8080/api/transactions/anyCategory
-// :category -> URL Param -> req.params.category
-// exports.transactionCategory = (req, res) => {
-// 	knex("transactions")
-// 		.where("transactions.category", "=", `${req.params.category}`)
-// 		.then((data) => {
-// 			// If record is not found, respond with 404
-// 			if (!data.length) {
-// 				return res
-// 					.status(404)
-// 					.send(`Transaction with category: ${req.params.category} is not found`);
-// 			}
-// 			res.status(200).json(data);
-// 		})
-// 		.catch((err) =>
-// 			res.status(400).send(`Error retrieving transaction ${req.params.category} ${err}`)
-// 		);
-// };
 
 // ADD TRANSACTION
 exports.addTransaction = (req, res) => {
