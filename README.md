@@ -37,7 +37,7 @@ to install the nodemodules, scripts and dependencies
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`DB_LOCAL_DBNAME = "<your_db_username>";
+`DB_LOCAL_DBNAME = "<ontrack_db_new>";
 DB_LOCAL_USER = "<your_db_password>";
 DB_LOCAL_PASSWORD = "<your_db_password>";
 PORT = 8080;`
@@ -54,7 +54,7 @@ create the ontrack_db database, using MySQL CLI or GUI Client.
 To migrate the tables run
 `npm run migrate`
 If there are issues requiring you to drop the tables, you can run `knex migrate:rollback` or `knex migrate:down`.
-Confirm that the tables have been created in our DB. You can drop database on mySql workbench using `Drop database <databasename>`.
+Confirm that the tables have been created in our DB. You can drop database on mySql workbench using `Drop database <ontrack_db_new>`.
 
 ## Seeding Data
 
